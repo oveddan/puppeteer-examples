@@ -17,7 +17,7 @@ await page.setViewport({
 
 console.log('open the browser window, and login to twitter:');
 
-// wait for the facebook messenger link to appear.
+// wait for the tweet input to appear.
 const messengerContainer = await page.waitForSelector('.DraftEditor-editorContainer');
 
 console.log('found messenger container, clicking.');

@@ -17,20 +17,8 @@ await page.setViewport({
 
 console.log('open the browser window, and login to facebook:');
 
-// wait for the facebook messenger link to appear.
-const messengerLink = await page.waitForSelector('[data-testid=left_nav_item_Messenger]');
-
-// let the page load
-await page.waitForTimeout(3000);
-
-// click the messenger link.
-await messengerLink.click();
-
-console.log('opened messenger link');
-
 // wait for a chat to be opened.
-await page.waitForSelector("[aria-label='New message']");
-
+await page.waitForSelector("[aria-label='Type a message...']");
 
 await page.keyboard.type('Hi!  Hows it going today?', {delay: 10});
 await page.keyboard.press('Enter');
