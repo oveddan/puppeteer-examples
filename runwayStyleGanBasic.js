@@ -1,4 +1,5 @@
 import rw from '@runwayml/hosted-models';
+import * as fs from 'fs';
 
 const model = new rw.HostedModel({
   url: "https://skygan-a035afd5.hosted-models.runwayml.cloud/v1/",
@@ -19,7 +20,15 @@ const inputs = {
 };
 
 console.log('running stylegan2 on sky images')
-
 const outputs = await model.query(inputs);
 
-console.log(outputs.image);
+console.log('got an image, saving it');
+// console.log(outputs.image);
+
+console.log('saving image to file image.jpg');
+const imageData = outputs.image.replace(/^data:image\/\w+;base64,/, "");
+const buf = new Buffer(imageData, 'base64');
+fs.writeFileSync('image.jpg', buf);
+
+// see https://pptr.dev/#?product=Puppeteer&version=v5.3.1&show=api-elementhandleuploadfilefilepaths
+// for how to upload this file using puppeteer.
