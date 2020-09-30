@@ -28,7 +28,7 @@ console.log('got an image, saving it');
 console.log('saving image to file image.jpg');
 const imageData = outputs.image.replace(/^data:image\/\w+;base64,/, "");
 const buf = new Buffer(imageData, 'base64');
-fs.writeFileSync('image.jpg', buf);
+fs.writeFileSync('sunset.jpg', buf);
 
 // see https://pptr.dev/#?product=Puppeteer&version=v5.3.1&show=api-elementhandleuploadfilefilepaths
 // for how to upload this file using puppeteer.
